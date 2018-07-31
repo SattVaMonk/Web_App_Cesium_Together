@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TS.Models;
+using Newtonsoft.Json;
 
 namespace TS.Controllers
 {
@@ -12,7 +13,10 @@ namespace TS.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            UserManager um = new UserManager();
+            um.GenerateUsers();
+            //ViewData["User"] = JsonConvert.SerializeObject(um.users[0]);
+            return View(um.users[0]);
         }
         
     }

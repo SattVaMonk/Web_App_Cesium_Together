@@ -2,14 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model TS.Models.User
+
 <html>
 <head>
     <link rel="stylesheet" href="~/css/Index.css" media="screen">
     <script src="~/src/Cesium/Cesium.js"></script>
+    <script src="~/js/script.js"></script>
+    <script>
+        function loadPin() {
+            var user = @Html.Raw(Json.Serialize(Model));
+            console.log("user: ", user);
+            addMyPin(user.name, user.lon, user.lat, 'marker-stroked');
+
+            var friends = user.friends;
+            console.log(friends.length);
+            for (index = 0; index < friends.length; index++) {
+                console.log(friends[index]);
+                addFriendPin(friends[index].name,friends[index].lon, friends[index].lat, 'marker-stroked');
+            }
+        }
+    </script>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
 </head>
-<body>
+<body onload="loadPin()">
     <div id="cesiumContainer"></div>
     <script src="~/js/App.js"></script>
 </body>
