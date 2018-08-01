@@ -1,55 +1,5 @@
 ﻿@import url(../src/Cesium/Widgets/widgets.css);
 
-.backdrop {
-    display: inline-block;
-    background: rgba(42, 42, 42, 0.7);
-    border-radius: 5px;
-    border: 1px solid #444;
-    padding: 5px 10px;
-    color: #fff;
-    line-height: 150%;
-    font-size: small;
-}
-
-#heightSliderLabel, #heightValue {
-    vertical-align: top;
-}
-
-.backdrop a:link, .backdrop a:visited, .backdrop a:hover {
-    color: #fff
-}
-
-.loadingIndicator {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -33px;
-    margin-left: -33px;
-    width: 66px;
-    height: 66px;
-    background: url(Source/Images/ajax-loader.gif) center no-repeat;
-}
-
-.cover {
-    display: none;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.75);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-#menu {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-}
-
-.nowrap {
-    white-space: nowrap;
-}
 
 html, body, #cesiumContainer {
     width: 100%;
@@ -58,13 +8,23 @@ html, body, #cesiumContainer {
     padding: 0;
     overflow: hidden;
     font-family: sans-serif;
-    background: #000;
+    z-index: 0;
 }
 
-button.cesium-infoBox-camera {
-    display: none;
+#logInContainer {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    width: 300px;
+    height: 500px;
+    z-index: 1;
+    background: #FEFEFE;
+    opacity: 0.4;
 }
 
-#3DTiles {
-    padding-top: 10px;
+.toolbar-left {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
 }

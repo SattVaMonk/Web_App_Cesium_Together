@@ -1,6 +1,13 @@
 ﻿
     "use strict";
-    var viewer = new Cesium.Viewer('cesiumContainer');
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    timeline: false,
+    animation: false,
+    geocoder: false,
+    homeButton: false,
+    baseLayerPicker: false,
+    navigationHelpButton: false
+});
 
     //var points = viewer.scene.primitives.add(new Cesium.PointPrimitiveCollection());
     //points.add({
