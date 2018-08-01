@@ -9,29 +9,19 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
     navigationHelpButton: false
 });
 
-    //var points = viewer.scene.primitives.add(new Cesium.PointPrimitiveCollection());
-    //points.add({
-    //    position: new Cesium.Cartesian3.fromDegrees(-71.089621, 42.335433,0),
-    //    color: Cesium.Color.YELLOW
-    //});
-    //points.add({
-    //    position: new Cesium.Cartesian3(121.54847,31.175974,0),
-    //    color: Cesium.Color.CYAN
-    //});
-
-    //var billboards = viewer.scene.primitives.add(new Cesium.BillboardCollection());
-    //billboards.add({
-    //    position: new Cesium.Cartesian3.fromDegrees(-71.089621, 42.335433, 0),
-    //    image: '../src/cesium/assets/textures/maki/square-stroked.png',
-    //    color: Cesium.Color.BLUE,
-    //    scale: 0.2
-    //});
-    //billboards.add({
-    //    position: new Cesium.Cartesian3.fromDegrees(121.54847, 31.175974, 0),
-    //    image: '../src/cesium/assets/textures/maki/square-stroked.png',
-    //    color: Cesium.Color.RED,
-    //    scale: 0.2
-    //});
+// // Create an initial camera view
+var initialPosition = new Cesium.Cartesian3(8640846.100855909,3240371.9760483615,2623371.724015734);
+var initialOrientation = new Cesium.HeadingPitchRoll(-0.6336820746480345,-0.7305370107966855,0.254485174668401);
+var homeCameraView = {
+    destination: initialPosition,
+    orientation: {
+        heading: initialOrientation.heading,
+        pitch: initialOrientation.pitch,
+        roll: initialOrientation.roll
+    }
+};
+// Set the initial view
+viewer.scene.camera.setView(homeCameraView);
 
     var pinBuilder = new Cesium.PinBuilder();
 
@@ -91,4 +81,18 @@ var addMyPin = function (name,lon, lat, pic) {
             scale: 1.0
         }
     });
+}
+
+var getCameraPosition = function() {
+    var camera = viewer.scene.camera;
+    var store = {
+        position: camera.position.clone(),
+        direction: camera.direction.clone(),
+        up: camera.up.clone(),
+        right: camera.right.clone(),
+        transform: camera.transform.clone(),
+        frustum: camera.frustum.clone()
+    };
+    console.log("Camera: ", camera);
+    console.log("Store: ", store);
 }
