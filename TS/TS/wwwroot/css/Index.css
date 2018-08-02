@@ -8,10 +8,10 @@ html, body, #cesiumContainer {
     padding: 0;
     overflow: hidden;
     font-family: sans-serif;
-    z-index: 0;
+    z-index: 1;
 }
 
-#logInContainer {
+/*#logInContainer {
     position: absolute;
     top: 100px;
     right: 50px;
@@ -20,12 +20,125 @@ html, body, #cesiumContainer {
     z-index: 1;
     background: #FEFEFE;
     opacity: 0.4;
-}
+}*/
 
-.toolbar-left {
+.logo {
     display: block;
     position: absolute;
-    top: 50px;
-    left: 100px;
+    top: 100px;
+    left: 150px;
     width: 450px;
+}
+
+
+.login {
+    margin: 20px auto 0;
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    width: 400px;
+    height: 500px;
+    z-index: 2;
+    background: #FEFEFE;
+    opacity: 0.4;
+}
+
+.loginlogo {
+    position: absolute;
+    width: 280px;
+    top: 150px;
+    right: 110px;
+}
+
+input[type="password"] {
+    border: 1px solid #a1a3a3;
+    border-radius: 4px;
+    box-shadow: 0 1px #fff;
+    box-sizing: border-box;
+    color: #696969;
+    height: 39px;
+    margin: 31px 0 0 29px;
+    padding-left: 37px;
+    transition: box-shadow 0.3s;
+    width: 240px;
+    position: absolute;
+    top: 300px;
+    right: 130px;
+    z-index: 3;
+}
+
+input[type="text"] {
+    border: 1px solid #a1a3a3;
+    border-radius: 4px;
+    box-shadow: 0 1px #fff;
+    box-sizing: border-box;
+    color: #696969;
+    height: 39px;
+    margin: 31px 0 0 29px;
+    padding-left: 37px;
+    transition: box-shadow 0.3s;
+    width: 240px;
+    position: absolute;
+    top: 250px;
+    right: 130px;
+    z-index: 3;
+}
+
+    input[type="password"]:focus, input[type="text"]:focus {
+        box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
+        outline: 0;
+    }
+
+.show-password {
+    display: block;
+    height: 16px;
+    margin: 26px 0 0 28px;
+    width: 87px;
+}
+
+input[type="submit"] {
+    width: 240px;
+    height: 35px;
+    display: block;
+    font-family: Arial, "Helvetica", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 1px 1px 0px #37a69b;
+    padding-top: 6px;
+    margin: 29px 0 0 29px;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background-color: #37a69b;
+    background-image: linear-gradient(top,#3db0a6,#3111);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+    position: absolute;
+    top: 400px;
+    right: 130px;
+    z-index: 3;
+}
+
+#forgot {
+    position: absolute;
+    top: 380px;
+    right: 185px;
+    z-index: 3;
+    color: #2ab7ec;
+    text-decoration: underline;
+}
+
+#loading {
+    position: absolute;
+    top: 250px;
+    right: 220px;
+    color: #FEFEFE;
+    visibility:hidden;
 }

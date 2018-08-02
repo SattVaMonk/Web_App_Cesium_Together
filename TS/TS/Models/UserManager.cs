@@ -7,30 +7,59 @@ namespace TS.Models
 {
     public class UserManager
     {
-        public List<User> users;
+        public Dictionary<string,User> users;
 
         public UserManager()
         {
-            users = new List<User>();
+            users = new Dictionary<string, User>();
+        }
+
+        public bool UserExist(string id)
+        {
+            return users.ContainsKey(id);
+        }
+
+        public bool Login(string id, string password)
+        {
+            if (UserExist(id))
+                return users[id].password == password;
+
+            return false;
+        }
+
+        public List<User> GetFriends(string id)
+        {
+            List<User> friends = new List<User>();
+            friends.Add(users[id]);
+            users[id].friends.ForEach(_ =>
+            {
+                if (users.ContainsKey(_))
+                    friends.Add(users[_]);
+            });
+            return friends;
         }
 
         public void GenerateUsers()
         {
             User friend = new User()
             {
-                name = "friend",
-                id = 0002,
+                name = "Jing",
+                password = "friend",
+                username = "friend_xj",
                 lon = 121.54847,
                 lat = 31.175974,
             };
-            users.Add(new User()
+            friend.friends.Add("me");
+            users.Add(friend.username, friend);
+            users.Add("me", new User()
             {
-                name = "me",
-                id = 0001,
+                name = "Anning",
+                password = "me",
+                username = "me",
                 lon = -71.089621,
                 lat = 42.335433
             });
-            users[0].friends.Add(friend);
+            users["me"].friends.Add(friend.username);
         }
     }
 }

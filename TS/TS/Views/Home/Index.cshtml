@@ -2,44 +2,34 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model TS.Models.User
 
 <html>
 <head>
     <link rel="stylesheet" href="~/css/Index.css" media="screen">
     <script src="~/src/Cesium/Cesium.js"></script>
     <script src="~/js/script.js"></script>
-    <script>
-        function loadPin() {
-            var user = @Html.Raw(Json.Serialize(Model));
-            console.log("user: ", user);
-            addMyPin(user.name, user.lon, user.lat, 'marker-stroked');
-
-            var friends = user.friends;
-            console.log(friends.length);
-            for (index = 0; index < friends.length; index++) {
-                console.log(friends[index]);
-                addFriendPin(friends[index].name,friends[index].lon, friends[index].lat, 'marker-stroked');
-            }
-        }
-    </script>
     
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
 </head>
-<body onload="loadPin()">
+<body>
     <div id="cesiumContainer"></div>
-    <div class="toolbar-left">
-        @*<button onclick="getCameraPosition()">Show Camera</button>*@
-        <img src="~/images/logo_big.png" width="400"/>
-        <img src="~/images/headline.png" width="400"/>
+    <div class="logo" id="logoImg">
+        <button onclick="getCameraPosition()">Show Camera</button>
+        <img src="~/images/logo_big.png" width="500" />
+        <img src="~/images/headline.png" width="500" />
     </div>
-    <div id="logInContainer">
-        <form>
 
-        </form>
-    </div>
+    <h1 id="loading">Loading...</h1>
+
+    <div class="login" id="loginDiv"></div>
+    <img src="~/images/logo_black.png" class="loginlogo" id="loginLogo">
+    <input type="text" placeholder="Username" id="username">
+    <input type="password" placeholder="password" id="password">
+    <input type="submit" value="Sign In" onclick="LoginClick()" id="submit">
+    <p id="forgot">Forgot pass world?</p>
+
     <script src="~/js/App.js"></script>
 </body>
 </html>

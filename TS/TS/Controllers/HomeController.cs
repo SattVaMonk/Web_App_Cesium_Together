@@ -13,11 +13,18 @@ namespace TS.Controllers
     {
         public IActionResult Index()
         {
-            UserManager um = new UserManager();
-            um.GenerateUsers();
-            //ViewData["User"] = JsonConvert.SerializeObject(um.users[0]);
-            return View(um.users[0]);
+            return View();
         }
         
+        [HttpPost]
+        public string Login(string username, string password)
+        {
+            UserManager um = new UserManager();
+            um.GenerateUsers();
+            if (um.Login(username, password))
+                return JsonConvert.SerializeObject(um.GetFriends(username));
+            return "404";
+        }
+
     }
 }

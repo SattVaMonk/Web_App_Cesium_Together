@@ -81,6 +81,16 @@ var addMyPin = function (name,lon, lat, pic) {
             scale: 1.0
         }
     });
+    document.getElementById("loading").style.visibility = 'hidden';
+    var homeView = {
+        destination: new Cesium.Cartesian3.fromDegrees(lon,lat,10000000),
+        orientation: {
+            heading: 0.0,
+            pitch: -Cesium.Math.PI_OVER_TWO,
+            roll: 0.0
+        }
+    }
+    viewer.scene.camera.flyTo(homeView);
 }
 
 var getCameraPosition = function() {
