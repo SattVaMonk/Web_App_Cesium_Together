@@ -2,7 +2,7 @@
     console.log("Login:");
     var un = document.getElementById('username').value;
     var pw = document.getElementById('password').value;
-    var url = "http://localhost:51366/Home/Login?username=" + un + "&password=" + pw;
+    var url = "./Home/Login?username=" + un + "&password=" + pw;
     console.log("url:", url);
 
     document.getElementById("username").style.visibility = 'hidden';
@@ -38,12 +38,12 @@ function loadPin(friendlist) {
 
     user = friends[0]
     console.log("user: ", user);
-    addMyPin(user.name, user.lon, user.lat, 'marker-stroked');
+    addMyPin(user.name, user.lon, user.lat, '../images/me.jpg');
 
     console.log(friends.length);
     for (index = 1; index < friends.length; index++) {
         console.log(friends[index]);
-        addFriendPin(friends[index].name, friends[index].lon, friends[index].lat, 'marker-stroked');
+        addFriendPin(friends[index].name, friends[index].lon, friends[index].lat, '../images/me.jpg');
     }
 
     document.getElementById("logoImg").style.visibility = 'hidden';

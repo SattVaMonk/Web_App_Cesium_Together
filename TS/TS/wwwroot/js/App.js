@@ -43,10 +43,22 @@ viewer.scene.camera.setView(homeCameraView);
     //        }
     //    });
     //}
+
+
 var addFriendPin = function (name, lon,lat, pic) {
     console.log('Add friend');
+    //var porperties = new Cesium.PropertyBag();
+    //porperties.addProperty('Name ', name);
+    //porperties.addProperty('Event ', 'No recently event');
+    //porperties.addProperty('Picture ', '../images/logo.png');
+    //console.log('properties', porperties);
+    
+    var dscpt = '<div class="cesium-infoBox-container"><img src="' + pic +
+        '" class="cesium-infoBox-img"><table class="cesium-infoBox-defaultTable cesium-infoBox-defaultTable-lighter" ><tbody><tr><th>Longitude</th><td>'
+        +lon+'</td ></tr > <tr><th>Latitude</th><td>'+lat+'</td></tr></tbody ></table ></div > ';
+    console.log('Description',dscpt);
     var pin = viewer.entities.add({
-        name: 'pin_friends',
+        name: name,
         //position: Cesium.Cartesian3.fromDegrees(121.54847, 31.175974, 0),
         position: Cesium.Cartesian3.fromDegrees(lon, lat, 0),
         label: {
@@ -55,18 +67,20 @@ var addFriendPin = function (name, lon,lat, pic) {
             scale: 0.8
         },
         billboard: {
-            image: pinBuilder.fromMakiIconId(pic, Cesium.Color.RED, 48),
+            image: pinBuilder.fromMakiIconId('marker-stroked', Cesium.Color.RED, 48),
             //image: pinBuilder.fromMakiIconId('marker-stroked', Cesium.Color.RED, 48),
             verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
             scale: 1.0
-        }
-    });
+        },
+        description: dscpt
+      });
+    console.log('pin', pin);
 }
 
 var addMyPin = function (name,lon, lat, pic) {
     console.log('Add Me');
     var pin = viewer.entities.add({
-        name: 'pin_friends',
+        name: name,
         //position: Cesium.Cartesian3.fromDegrees(121.54847, 31.175974, 0),
         position: Cesium.Cartesian3.fromDegrees(lon, lat, 0),
         label: {
@@ -75,7 +89,7 @@ var addMyPin = function (name,lon, lat, pic) {
             scale: 0.8
         },
         billboard: {
-            image: pinBuilder.fromMakiIconId(pic, Cesium.Color.GREEN, 48),
+            image: pinBuilder.fromMakiIconId('marker-stroked', Cesium.Color.GREEN, 48),
             //image: pinBuilder.fromMakiIconId('marker-stroked', Cesium.Color.RED, 48),
             verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
             scale: 1.0
@@ -83,7 +97,7 @@ var addMyPin = function (name,lon, lat, pic) {
     });
     document.getElementById("loading").style.visibility = 'hidden';
     var homeView = {
-        destination: new Cesium.Cartesian3.fromDegrees(lon,lat,10000000),
+        destination: new Cesium.Cartesian3.fromDegrees(lon,lat,11000000),
         orientation: {
             heading: 0.0,
             pitch: -Cesium.Math.PI_OVER_TWO,
