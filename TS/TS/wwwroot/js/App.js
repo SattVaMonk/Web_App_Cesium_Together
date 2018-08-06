@@ -33,9 +33,7 @@ viewer.infoBox.frame.addEventListener('load', function () {
 
         if (e.target && e.target.className === "cesium-infoBox-button-vedio") {
             console.log("vedio clicked");
-            //document.getElementById("video-Container").style.visibility = 'visible';
-            document.getElementById("localVideo").style.visibility = 'visible';
-            document.getElementById("remoteVideo").style.visibility = 'visible';
+            document.getElementById("video-Container").style.visibility = 'visible';
             buildConnection();
         }
     }, false);
@@ -95,15 +93,15 @@ var addMyPin = function (name,lon, lat, pic) {
         }
     });
 
-    viewer.infoBox.frame.addEventListener('load', function () {
+    //viewer.infoBox.frame.addEventListener('load', function () {
         
-        viewer.infoBox.frame.contentDocument.body.addEventListener('click', function (e) {
+    //    viewer.infoBox.frame.contentDocument.body.addEventListener('click', function (e) {
            
-            if (e.target && e.target.className === "cesium-infoBox-button-vedio") {
-                console.log("vedio clicked");
-            }
-        }, false);
-    }, false);
+    //        if (e.target && e.target.className === "cesium-infoBox-button-vedio") {
+    //            console.log("vedio clicked");
+    //        }
+    //    }, false);
+    //}, false);
 
     document.getElementById("loading").style.visibility = 'hidden';
     var homeView = {

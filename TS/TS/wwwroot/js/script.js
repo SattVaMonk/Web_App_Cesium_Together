@@ -14,6 +14,7 @@
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.responseType = 'text';
     xmlHttp.open("POST", url, true);
+
     xmlHttp.onload = function () {
         if (xmlHttp.response != "404") {
             loadPin(xmlHttp.response);
@@ -27,7 +28,6 @@
             console.log("login failed");
             // TODO: Add pop-up
         }
-            
     }
     xmlHttp.send();
 }
@@ -44,8 +44,7 @@ function loadPin(friendlist) {
     for (index = 1; index < friends.length; index++) {
         console.log(friends[index]);
         addFriendPin(friends[index].name, friends[index].lon, friends[index].lat, '../images/me.jpg');
-    }
-
+    }  
     document.getElementById("logoImg").style.visibility = 'hidden';
     document.getElementById("loginLogo").style.visibility = 'hidden';
     document.getElementById("loginDiv").style.visibility = 'hidden';

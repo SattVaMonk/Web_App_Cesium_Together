@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="~/css/Index.css" media="screen">
+    <link rel="stylesheet" href="~/css/Index.css">
     <script src="~/src/Cesium/Cesium.js"></script>
     <script src="~/js/script.js"></script>
     
@@ -15,28 +15,33 @@
 </head>
 <body>
     <div id="cesiumContainer"></div>
+
     <div class="logo" id="logoImg">
         @*<button onclick="getCameraPosition()">Show Camera</button>*@
+        <button onclick="buildConnection()">Connect</button>
         <img src="~/images/logo_big.png" width="500" />
         <img src="~/images/headline.png" width="500" />
     </div>
 
     <h1 id="loading">Loading...</h1>
 
-    <div class="login" id="loginDiv"></div>
-    <img src="~/images/logo_black.png" class="loginlogo" id="loginLogo">
-    <input type="text" placeholder="Username" id="username">
-    <input type="password" placeholder="password" id="password">
-    <input type="submit" value="Sign In" onclick="LoginClick()" id="submit">
-    <p id="forgot">Forgot pass world?</p>
+    <div class="login" id="loginDiv">
+        <img src="~/images/logo_black.png" class="loginlogo" id="loginLogo">
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="password" id="password">
+        <input type="submit" value="Sign In" onclick="LoginClick()" id="submit">
+        <p id="forgot">Forgot pass world?</p>
+    </div>
+    
 
-    <div id="video-Container"></div>
-    <video id="localVideo" muted playsinline></video>
-    <video id="remoteVideo" playsinline></video>
-
+    <div id="video-Container">
+        <video id="localVideo" autoplay muted playsinline></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+        
+    </div>
 
     <script src="~/js/App.js"></script>
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="~/js/adapter.js"></script>
     <script src="~/js/webRTC.js"></script>
 </body>
 </html>

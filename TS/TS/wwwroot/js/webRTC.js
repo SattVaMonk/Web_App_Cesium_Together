@@ -33,7 +33,6 @@
 
     socket.onopen = e => {
         console.log("socket opened", e);
-
         console.log("sent create or join request");
         socket.send('create or join');
     };
@@ -266,6 +265,7 @@
         console.log('Hanging up.');
         stop();
         sendMessage('bye');
+        document.getElementById("video-Container").style.visibility = 'hidden';
     }
 
     function handleRemoteHangup() {
@@ -279,5 +279,4 @@
         pc.close();
         pc = null;
     }
-
 };
