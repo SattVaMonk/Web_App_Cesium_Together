@@ -25,25 +25,21 @@ viewer.scene.camera.setView(homeCameraView);
 
     var pinBuilder = new Cesium.PinBuilder();
 
-    //function addFriendPin(long, lat, pic) {
-    //    var pin = viewer.entities.add({
-    //        name: 'pin_friends',
-    //        //position: Cesium.Cartesian3.fromDegrees(121.54847, 31.175974, 0),
-    //        position: Cesium.Cartesian3.fromDegrees(long,lat, 0),
-    //        label: {
-    //            text: 'Jing',
-    //            verticalOrigin: Cesium.VerticalOrigin.TOP,
-    //            scale: 0.8
-    //        },
-    //        billboard: {
-    //            image: pinBuilder.fromMakiIconId(pic, Cesium.Color.RED, 48),
-    //            //image: pinBuilder.fromMakiIconId('marker-stroked', Cesium.Color.RED, 48),
-    //            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-    //            scale: 1.0
-    //        }
-    //    });
-    //}
 
+viewer.infoBox.frame.setAttribute('sandbox', 'allow-same-origin allow-popups allow-forms allow-scripts allow-top-navigation');
+viewer.infoBox.frame.addEventListener('load', function () {
+
+    viewer.infoBox.frame.contentDocument.body.addEventListener('click', function (e) {
+
+        if (e.target && e.target.className === "cesium-infoBox-button-vedio") {
+            console.log("vedio clicked");
+            //document.getElementById("video-Container").style.visibility = 'visible';
+            document.getElementById("localVideo").style.visibility = 'visible';
+            document.getElementById("remoteVideo").style.visibility = 'visible';
+            buildConnection();
+        }
+    }, false);
+}, false);
 
 var addFriendPin = function (name, lon,lat, pic) {
     console.log('Add friend');
@@ -55,8 +51,9 @@ var addFriendPin = function (name, lon,lat, pic) {
     
     var dscpt = '<div class="cesium-infoBox-container"><img src="' + pic +
         '" class="cesium-infoBox-img"><table class="cesium-infoBox-defaultTable cesium-infoBox-defaultTable-lighter" ><tbody><tr><th>Longitude</th><td>'
-        +lon+'</td ></tr > <tr><th>Latitude</th><td>'+lat+'</td></tr></tbody ></table ></div > ';
-    console.log('Description',dscpt);
+        + lon + '</td ></tr > <tr><th>Latitude</th><td>' + lat + '</td></tr><tr><td><button class="cesium-infoBox-button-vedio"></button></td><td><button class="cesium-infoBox-button-message"></button></td></tr></tbody ></table></div >';
+    console.log('Description', dscpt);
+
     var pin = viewer.entities.add({
         name: name,
         //position: Cesium.Cartesian3.fromDegrees(121.54847, 31.175974, 0),
@@ -73,9 +70,11 @@ var addFriendPin = function (name, lon,lat, pic) {
             scale: 1.0
         },
         description: dscpt
-      });
-    console.log('pin', pin);
+    });
+
 }
+
+
 
 var addMyPin = function (name,lon, lat, pic) {
     console.log('Add Me');
@@ -95,6 +94,17 @@ var addMyPin = function (name,lon, lat, pic) {
             scale: 1.0
         }
     });
+
+    viewer.infoBox.frame.addEventListener('load', function () {
+        
+        viewer.infoBox.frame.contentDocument.body.addEventListener('click', function (e) {
+           
+            if (e.target && e.target.className === "cesium-infoBox-button-vedio") {
+                console.log("vedio clicked");
+            }
+        }, false);
+    }, false);
+
     document.getElementById("loading").style.visibility = 'hidden';
     var homeView = {
         destination: new Cesium.Cartesian3.fromDegrees(lon,lat,11000000),

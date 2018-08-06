@@ -143,6 +143,38 @@ input[type="submit"] {
     visibility:hidden;
 }
 
+#video-Container {
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    left:20%;
+    top: 0;
+    background-color: black;
+    visibility: hidden;
+    opacity:.4;
+    z-index: 4;
+}
+
+#localVideo {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    height: 25%;
+    width: 15%;
+    z-index: 5;
+    visibility:hidden;
+}
+
+#remoteVideo {
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    height: 75%;
+    width: 45%;
+    z-index: 5;
+    visibility: hidden;
+}
+
 /*.infoBoxImg {
     display: block;
     width: 100px;

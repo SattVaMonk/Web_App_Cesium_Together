@@ -39,6 +39,9 @@ namespace TS
 
             app.UseStaticFiles();
 
+            app.UseWebSockets();
+            app.UseMiddleware<WebSocketMiddleware>();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

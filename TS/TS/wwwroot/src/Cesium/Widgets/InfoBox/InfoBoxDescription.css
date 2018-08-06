@@ -104,3 +104,20 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.cesium-infoBox-button-vedio {
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 50%;
+    background-color: darkred;
+}
+.cesium-infoBox-button-message {
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 50%;
+    background-color: chartreuse;
+}

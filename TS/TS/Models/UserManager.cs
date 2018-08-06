@@ -45,7 +45,7 @@ namespace TS.Models
             {
                 name = "Jing",
                 password = "friend",
-                username = "friend_xj",
+                username = "friend",
                 lon = 121.54847,
                 lat = 31.175974,
             };
