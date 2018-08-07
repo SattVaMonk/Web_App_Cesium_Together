@@ -173,3 +173,34 @@ input[type="submit"] {
     top: 5%;
     height: 75%;
 }
+
+#hangupButton {
+    display: inline-block;
+    border: none;
+    color: #EFF0EB;
+    border-radius: 15px 15px 15px 15px;
+    font-family: Verdana;
+    width: 20%;
+    height: 10%;
+    font-size: 18px;
+    padding: 7px 43px;
+    box-shadow: inset 0 1px 0 0 #FFF6CE;
+    text-shadow: 0 1px 0 #FFFFFF;
+    background-color: #CC1212;
+    position: absolute;
+    bottom: 5%;
+    left: 40%;
+}
+
+#hangupButton:hover, .hangupButton:active {
+        border: none;
+        color: #FFFFFC;
+        box-shadow: inset 0 1px 0 0 #FFF6CE;
+        background-color: #A1180E;
+}
+
+#dialoging{
+    text-align:center;
+    color: aliceblue;
+    top:45%;
+}

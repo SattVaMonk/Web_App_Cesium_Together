@@ -1,4 +1,4 @@
-﻿function buildConnection() {
+﻿
     'use strict';
 
     var isChannelReady = false;
@@ -27,12 +27,17 @@
     // room = prompt('Enter room name:');
 
     var protocol = location.protocol === "https:" ? "wss:" : "ws:";
-    var wsUri = protocol + "//" + window.location.host;
-    var socket = new WebSocket(wsUri);
+var wsUri = protocol + "//" + window.location.host;
+var socket;
+
+function buildConnection() {
+
+    socket = new WebSocket(wsUri);
 
 
     socket.onopen = e => {
         console.log("socket opened", e);
+
         console.log("sent create or join request");
         socket.send('create or join');
     };
@@ -67,6 +72,7 @@
     socket.onerror = function (e) {
         console.error(e.data);
     };
+}
 
 
     ////////////////////////////////////////////////
@@ -255,6 +261,7 @@
         console.log('Remote stream added.');
         remoteStream = event.stream;
         remoteVideo.srcObject = remoteStream;
+        document.getElementById("dialoging").style.visibility = 'hidden';
     }
 
     function handleRemoteStreamRemoved(event) {
@@ -265,8 +272,9 @@
         console.log('Hanging up.');
         stop();
         sendMessage('bye');
-        document.getElementById("video-Container").style.visibility = 'hidden';
     }
+
+    document.getElementById("hangupButton").addEventListener("click", hangup, false);
 
     function handleRemoteHangup() {
         console.log('Session terminated.');
@@ -278,5 +286,5 @@
         isStarted = false;
         pc.close();
         pc = null;
+        document.getElementById("video-Container").style.visibility = 'hidden';
     }
-};
