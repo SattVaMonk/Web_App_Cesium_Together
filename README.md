@@ -1,2 +1,3 @@
 # Web_App_Cesium_Together
-A Web-GIS application built based on C# and CesiumJS
+A communication application built with ASP.NET Core and CesiumJS
+Enable vedio call with ASP.NET WebSocket and WebRTC
