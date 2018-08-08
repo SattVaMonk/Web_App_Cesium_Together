@@ -12,6 +12,7 @@ namespace TS.Models
         public string name;
         public double lat;
         public double lon;
+        public string pic;
         public List<string> friends;
 
         public User()

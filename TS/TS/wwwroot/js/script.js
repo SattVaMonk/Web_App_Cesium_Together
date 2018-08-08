@@ -38,12 +38,12 @@ function loadPin(friendlist) {
 
     user = friends[0]
     console.log("user: ", user);
-    addMyPin(user.name, user.lon, user.lat, '../images/me.jpg');
+    addMyPin(user.name, user.lon, user.lat, '../images/'+user.pic);
 
     console.log(friends.length);
     for (index = 1; index < friends.length; index++) {
         console.log(friends[index]);
-        addFriendPin(friends[index].name, friends[index].lon, friends[index].lat, '../images/me.jpg');
+        addFriendPin(friends[index].name, friends[index].lon, friends[index].lat, '../images/' + friends[index].pic);
     }  
     document.getElementById("logoImg").style.visibility = 'hidden';
     document.getElementById("loginLogo").style.visibility = 'hidden';

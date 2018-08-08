@@ -3,8 +3,9 @@
     position: absolute;
     top: 50px;
     right: 0;
-    width: 40%;
+    width: 400px;
     max-width: 480px;
+    height:300px;
     background: rgba(38, 38, 38, 0.95);
     color: #edffff;
     border: 1px solid #444;

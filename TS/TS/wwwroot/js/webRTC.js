@@ -26,8 +26,9 @@
 
     // room = prompt('Enter room name:');
 
-    var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+ var protocol = location.protocol === "https:" ? "wss:" : "ws:";
 var wsUri = protocol + "//" + window.location.host;
+console.log("wsURL:", wsUri);
 var socket;
 
 function buildConnection() {

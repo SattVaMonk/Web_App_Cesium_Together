@@ -22,6 +22,7 @@
     left: 0;
     right: 0;
     padding-right: 5px;
+    visibility:hidden;
 }
 
 .cesium-viewer .cesium-widget-credits {

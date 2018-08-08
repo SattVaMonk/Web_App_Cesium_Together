@@ -46,6 +46,7 @@ namespace TS.Models
                 name = "Jing",
                 password = "friend",
                 username = "friend",
+                pic = "cat.jpg",
                 lon = 121.54847,
                 lat = 31.175974,
             };
@@ -56,6 +57,7 @@ namespace TS.Models
                 name = "Anning",
                 password = "me",
                 username = "me",
+                pic = "me.jpg",
                 lon = -71.089621,
                 lat = 42.335433
             });

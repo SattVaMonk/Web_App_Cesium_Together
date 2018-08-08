@@ -48,8 +48,8 @@ var addFriendPin = function (name, lon,lat, pic) {
     //console.log('properties', porperties);
     
     var dscpt = '<div class="cesium-infoBox-container"><img src="' + pic +
-        '" class="cesium-infoBox-img"><table class="cesium-infoBox-defaultTable cesium-infoBox-defaultTable-lighter" ><tbody><tr><th>Longitude</th><td>'
-        + lon + '</td ></tr > <tr><th>Latitude</th><td>' + lat + '</td></tr><tr><td><button class="cesium-infoBox-button-vedio"></button></td><td><button class="cesium-infoBox-button-message"></button></td></tr></tbody ></table></div >';
+        '" class="cesium-infoBox-img"><table class="cesium-infoBox-defaultTable cesium-infoBox-defaultTable-lighter" style="position:absolute;top:130px;left:50px;width:300px;" ><tbody><tr><th>Longitude</th><td>'
+        + lon + '</td ></tr > <tr><th>Latitude</th><td>' + lat + '</td></tr><tr><td><button class="cesium-infoBox-button-vedio"><i class="fa fa-video-camera" style="color:red"></i></button></td><td><button class="cesium-infoBox-button-message"><i class="fa fa-commenting" style="color:green"></i></button></td></tr></tbody ></table></div >';
     console.log('Description', dscpt);
 
     var pin = viewer.entities.add({
